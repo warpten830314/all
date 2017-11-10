@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale=1">
+    <title>Title</title>
+    <script src="plupload/js/plupload.full.min.js"></script>
+    <script src="plupload/js/plupload.min.js"></script>
+</head>
+<body>
+<button id="chouse">选择文件</button>
+<button id="start_upload">开始上传</button>
+
+<script>
+    var uploader = new plupload.Uploader({
+        browse_button : 'chouse',
+        url : './upload.php',
+        flash_swf_url : 'plupload/js/Moxie.swf',
+        silverlight_xap_url : 'plupload/js/Moxie.xap'
+    });
+    uploader.init();
+    document.getElementById('start_upload').onclick = function () {
+        uploader.start();
+    };
+
+</script>
+</body>
+</html>
