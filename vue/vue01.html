@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale=1">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <span v-bind:title="aa" v-if="bb" v-for="todo in message">
+        <li>{{todo.text}}</li>
+    </span>
+    <button v-on:click="cc">切换</button>
+</div>
+
+
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+
+<div id="app-7">
+    <ol>
+        <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+        </todo-item>
+    </ol>
+</div>
+
+<script>
+
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+    var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其他什么人吃的东西' }
+            ]
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: [
+                {text : '11'},
+                {text : '22'},
+                {text : '33'},
+                {text : '44'},
+            ],
+            aa : '~~~~~~~~',
+            bb : 1
+        },
+        methods : {
+            cc : function () {
+                this.bb = 1-this.bb;
+            }
+        }
+    })
+
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+
+</script>
+</body>
+</html>
