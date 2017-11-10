@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale=1">
+    <title>验证结果</title>
+</head>
+<body>
+<h2>验证成功请前往登录页面</h2>
+<h1 id="info"></h1>
+<script>
+    //倒计时前往登录页
+    var h1 = document.getElementById('info');
+    var count = 5;
+    var timer = setInterval(function () {
+        if (count === 0)
+        {
+            //结束定时器
+            clearInterval(timer);
+            //跳转界面
+            window.location.href = "{:url(login/login)}"
+        }
+        h1.innhtml = count;
+        count--;
+    },1000);
+</script>
+</body>
+</html>

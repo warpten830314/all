@@ -1,0 +1,95 @@
+{include file="public/header" /}
+{include file="public/nav" /}
+    <div class="container">
+        <div class="top-container">
+            <div class="mid-area">
+                <div class="slide-holder" id="slide-holder">
+                    <div class="swiper-container" style="width: 100%; height: 100%">
+                        <div class="swiper-wrapper">
+                            {volist name="featuredBig" id="vo"}
+                            <div class="swiper-slide"><a href="{$vo.url}"><img src="{$vo.image}" style="width: 100%; height: 100%"></a></div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-sidebar">
+            <div class="right-ad">
+                <ul class="slidepic">
+                    <li><a><img src="__STATIC__/index/image/72f082025aafa40f9205eb43a364034f79f01968.jpg" /></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="content-container">
+            <div class="no-recom-container">
+                <div class="floor-content-start">
+                    
+                    <div class="floor-content">
+                        <div class="floor-header">
+                            <h3>美食</h3>
+                            <ul class="reco-words">
+                                {volist name="food_seData" id="vo"}
+                                <li><a href="{:url('lists/index',['id'=>$vo.id])}" target="_blank">{$vo.name}</a></li>
+                                {/volist}
+                                <li><a class="no-right-border no-right-padding" target="_blank">全部<span class="all-cate-arrow"></span></a></li>
+                            </ul>
+                        </div>
+                        <ul class="itemlist eight-row-height">
+                            {if condition="$foodData"}
+                            {volist name="foodData" id="vo"}
+                            <li class="j-card">
+                                <a>
+                                    <div class="imgbox">
+                                        <ul class="marketing-label-container">
+                                            <li class="marketing-label marketing-free-appoint"></li>
+                                        </ul>
+                                        <div class="range-area">
+                                            <div class="range-bg"></div>
+                                            <div class="range-inner">
+                                                <span class="white-locate"></span>
+                                                大连市沙河口区阿迪大厦
+                                            </div>
+                                        </div>
+                                        <div class="borderbox">
+                                            <img src="{$vo.image}" />
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="contentbox">
+                                    <a href="{:url('detail/index',['id'=>$vo.id])}" target="_blank">
+                                        <div class="header">
+                                            <h4 class="title ">【{$vo.location_ids|countLocation}店通用】{$vo.name}</h4>
+                                        </div>
+                                        <p>{$vo.description}</p>
+                                    </a>
+                                    <div class="pinfo">
+                                        <span class="price"><span class="moneyico">¥</span>{$vo.current_price}</span>
+                                        <span class="ori-price">价值<span class="price-line">¥<span>{$vo.origin_price}</span></span></span>
+                                    </div>
+                                    <div class="footer">
+                                        <span class="comment">4.6分</span><span class="sold">已售{$vo.buy_count}</span>
+                                        <div class="bottom-border"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            {/volist}
+                            {else /}
+                            <span style="color: brown;font-size: 24px">该城市下没有团购信息</span>
+                            {/if}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="copyright-info">
+            
+        </div>
+    </div>
+<script src="__STATIC__/index/swiper/common.js"></script>
+</body>
+</html>
