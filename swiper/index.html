@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="swiper/css/swiper.min.css">
+    <script src="swiper/js/swiper.min.js"></script>
+    <style>
+        body{
+            margin: auto;
+            font-size: 50px;
+        }
+        .swiper-container{
+            width: 600px;
+            height: 600px;
+        }
+        img{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="1341415swzerlwve9pvear.gif"/></div>
+        <div class="swiper-slide"><img src="eda32855b319ebc4b68a7fde8826cffc1f17161c.gif"/></div>
+        <div class="swiper-slide">3</div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev swiper-button-black"></div>
+    <div class="swiper-button-next swiper-button-black"></div>
+</div>
+<script>
+    //创建swiper对象
+    var swipe = new Swiper('.swiper-container',{
+        direction : 'horizontal',
+        loop : true,
+        pagnation : '.swiper-pagination',
+        autoplay : 1000,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        effect : 'cube'
+    })
+</script>
+</body>
+</html>
